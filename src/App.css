@@ -1,38 +1,46 @@
 .App {
   text-align: center;
+  position: relative; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#gallery-grid{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  /* grid-auto-rows: minmax(100px, auto); */
+  gap: 10px
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.selected-scene{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  /* background: black; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.list-img{
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.selected-scene img {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.close-selected-scene{
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 2;
+  right: 0;
+  position: absolute;
+  font-size: 50px;
+}
+.mustafa-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  gap: 10px
 }
