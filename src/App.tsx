@@ -12,7 +12,7 @@ export type SceneType = {
 };
 
 function App() {
-  const count = 30;
+  const count = 15;
   const [sceneList, setSceneList] = useState<Array<SceneType>>([]);
   const [displayList, setDisplayList] = useState<Array<SceneType>>([]);
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -48,13 +48,11 @@ function App() {
   const handleScroll = () => {
     setDisplayList([
       ...displayList,
-      ...sceneList.slice(
-        displayList.length - 1,
-        displayList.length - 1 + count
-      ),
+      ...sceneList.slice(displayList.length, displayList.length - 1 + count),
     ]);
   };
   const hasMore = displayList.length < sceneList.length;
+
   return (
     <div className="App">
       <InfiniteScroll
