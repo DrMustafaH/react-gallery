@@ -12,7 +12,7 @@ export type SceneType = {
 };
 
 function App() {
-  const count = 15;
+  const count = 30;
   const [sceneList, setSceneList] = useState<Array<SceneType>>([]);
   const [displayList, setDisplayList] = useState<Array<SceneType>>([]);
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -33,6 +33,14 @@ function App() {
     fetchData();
   }, []);
 
+  const handleScroll = () => {
+    setDisplayList([
+      ...displayList,
+      ...sceneList.slice(displayList.length, displayList.length - 1 + count),
+    ]);
+  };
+  const hasMore = displayList.length < sceneList.length;
+
   const handleImgClick = async (scene: SceneType) => {
     document.body.style.overflow = "hidden";
     setSelectedScene(scene);
@@ -44,14 +52,6 @@ function App() {
     setSelectedScene(undefined);
     setShowModal(!showModal);
   };
-
-  const handleScroll = () => {
-    setDisplayList([
-      ...displayList,
-      ...sceneList.slice(displayList.length, displayList.length - 1 + count),
-    ]);
-  };
-  const hasMore = displayList.length < sceneList.length;
 
   return (
     <div className="App">
