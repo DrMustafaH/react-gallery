@@ -12,7 +12,7 @@ function Modal({
   const getRandomColor = () => {
     const opacity = "0.8";
     let color = "rgba(";
-    for (var i = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i++) {
       color += Math.floor(Math.random() * 255) + ",";
     }
     color += opacity + ")";
